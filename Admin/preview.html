@@ -1,0 +1,87 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- saved from url=(0014)about:internet -->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Untitled Page</title>
+<meta name="GENERATOR" content="Created by BlueVoda Website builder http://www.bluevoda.com">
+<meta name="HOSTING" content="Hosting Provided By VodaHost http://www.vodahost.com">
+<style type="text/css">
+body
+{
+   background-color: #FFFFFF;
+   color: #000000;
+}
+</style>
+<link rel="stylesheet" href="./bv.validation.css" type="text/css">
+<style type="text/css">
+a:hover
+{
+   color: #8C2302;
+}
+</style>
+<script type="text/javascript" src="./jquery-1.4.2.min.js"></script>
+<script type="text/javascript" src="./bv.validation.js"></script>
+<script type="text/javascript">
+$(document).ready(function()
+{
+   $("#Form1").submit(function(event)
+   {
+      var isValid = $.validate.form(this);
+      return isValid;
+   });
+   $("#Editbox1").validate(
+   {
+      required: true,
+      type: 'email',
+      color_text: '#A52A00',
+      color_hint: '#FFFFFF',
+      color_error: '#FFFFFF',
+      color_border: '#000000',
+      nohint: false,
+      font_family: 'Arial',
+      font_size: '13px',
+      position: 'centerright',
+      offsetx: 0,
+      offsety: 0,
+      bubble_class: 'bubbleleft',
+      effect: 'none',
+      error_text: 'Enter Valid Email'
+   });
+   $("#Editbox2").validate(
+   {
+      required: true,
+      type: 'text',
+      length_min: '3',
+      length_max: '10',
+      color_text: '#8B0000',
+      color_hint: '#FFFFFF',
+      color_error: '#FFFFFF',
+      color_border: '#000000',
+      nohint: false,
+      font_family: 'Arial',
+      font_size: '13px',
+      position: 'centerright',
+      offsetx: 0,
+      offsety: 0,
+      bubble_class: 'bubbleleft',
+      effect: 'none',
+      error_text: 'Enter Password'
+   });
+});
+</script>
+</head>
+<body>
+<div id="bv_Form1" style="position:absolute;background-color:#F0F0F0;left:684px;top:254px;width:283px;height:150px;z-index:5">
+<form name="contact" method="post" action="<?php echo basename(__FILE__); ?>" id="Form1">
+<div id="bv_Text1" style="margin:0;padding:0;position:absolute;left:10px;top:15px;width:43px;height:16px;text-align:left;z-index:0;">
+<font style="font-size:13px" color="#000000" face="Arial">Name:</font></div>
+<input type="text" id="Editbox1" style="position:absolute;left:63px;top:15px;width:198px;height:20px;border:1px #C0C0C0 solid;font-family:'Courier New';font-size:16px;z-index:1" name="name" value="">
+<div id="bv_Text2" style="margin:0;padding:0;position:absolute;left:10px;top:42px;width:43px;height:16px;text-align:left;z-index:2;">
+<font style="font-size:13px" color="#000000" face="Arial">Email:</font></div>
+<input type="text" id="Editbox2" style="position:absolute;left:63px;top:42px;width:198px;height:20px;border:1px #C0C0C0 solid;font-family:'Courier New';font-size:16px;z-index:3" name="email" value="">
+<input type="submit" id="Button1" name="Button1" value="Send" style="position:absolute;left:63px;top:69px;width:96px;height:25px;font-family:Arial;font-size:13px;z-index:4">
+</form>
+</div>
+</body>
+</html>

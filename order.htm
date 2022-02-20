@@ -1,0 +1,368 @@
+
+<!DOCTYPE html>
+<html><head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" type="text/css" href="data/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="data/bootstrap-select.css">
+	<link href="data/css.css" rel="stylesheet" type="text/css">
+	<link href="data/css_002.css" rel="stylesheet" type="text/css">
+	<link href="data/font-awesome.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="data/camera.css">
+    <link rel="stylesheet" type="text/css" href="data/style.css">
+	  <link rel="stylesheet" type="text/css" href="data/flexslider.css">
+    <!--script type="text/javascript" src="data/firebug-lite-debug.js"></script-->	
+	<title>Book Shop</title>
+<script src="data/all.js" id="facebook-jssdk"></script>
+<script type="text/javascript" src="data/jquery.min.js"></script>
+<script type="text/javascript" src="data/jquery.form.js" ></script>
+<script type="text/javascript" src="data/jquery.cookie.js" ></script>
+
+
+<style>
+#myproduct
+{
+border: 1px solid #CCCCCC;
+border-radius:10px;
+}		
+
+#myproduct:hover
+{
+border: 1px solid #FFCC66;
+border-radius:10px;
+
+}		
+
+#myliks
+{
+
+ font-size:14px;
+ color:#fff;
+}
+
+#myliks:hover
+{
+
+ font-size:14px;
+ color:#FFCC66;
+}
+</style>	
+
+</head>
+
+<script type="text/javascript">
+$(document).ready(function(){
+
+var Logout = getUrlParameter('Logout');
+var Searchkey = getUrlParameter('Searchkey');
+var Searchtype = getUrlParameter('Searchtype');
+
+if(Logout=='Logout')
+	{
+	$.removeCookie('Uid');
+	$.removeCookie('Uname');
+	}
+
+if(Searchkey!=null)
+{
+
+}
+
+if(Searchtype!=null)
+{
+
+}
+
+var Uid=$.cookie('Uid'); 
+//alert(Uid);
+var Uname=$.cookie('Uname'); 
+Uid=+Uid+0;
+$("#uid").val(Uid);
+
+
+if(Uid>0)
+{
+ $(".SignIn").remove();
+ $("#mbuid").val(Uid);
+ $("#username").html(Uname); 
+}
+else{
+ $(".Order").remove();
+ $(".Books").remove();
+ $(".SignOut").remove();
+ $(".Cart").remove();
+ }
+
+
+
+				$("#formbookresult").ajaxForm({
+						target: '#bookresult'
+					}).submit();
+
+
+
+
+
+});
+</script>
+
+<script type="text/javascript">
+var getUrlParameter = function getUrlParameter(sParam) {
+    var sPageURL = window.location.search.substring(1),
+        sURLVariables = sPageURL.split('&'),
+        sParameterName,
+        i;
+
+    for (i = 0; i < sURLVariables.length; i++) {
+        sParameterName = sURLVariables[i].split('=');
+
+        if (sParameterName[0] === sParam) {
+            return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
+        }
+    }
+};
+</script>
+
+<form action="cgi/Orderhistory.py" method="post" enctype="multipart/form-data" id="formbookresult">
+<input class="form-control" type="hidden" name="Uid" value="" id="mbuid">
+</form>
+
+<body>
+		<div class="row" >
+		    <div class="col-md-12" style="background: #000;">
+			    <div class="breadcrumbs">
+				    <ul class="breadcrumb" style="background: #000;"><br>
+<input type="hidden" id="uid">
+<input type="hidden" id="uname">
+                    </ul>
+				</div>
+			</div>
+			
+		</div>
+
+<div class="page-container">
+
+	<div class="header" style="margin-bottom: 0px;">
+			<nav class="navbar container">
+			<div class="row">
+		    <div class="col-md-12">
+			<div style="float:right;padding-right:20px;">
+
+Welcome <br><div id="username"></div>
+
+			</div>
+
+		
+		
+
+  <a href="#" class="navbar-brand">
+					<img src="images/logo.png" alt="Sapphire" style="height:50px;">BOOK SHOP</a>
+
+		</div>
+			</div>
+			</nav>
+			</div>
+
+
+
+			  <div class="navbar-header pull-left">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+				  <span class="sr-only">Toggle navigation</span>
+				  <span class="icon-bar"></span>
+				  <span class="icon-bar"></span>
+				  <span class="icon-bar"></span>
+				</button>
+				
+			  </div>
+
+
+			  	<div class="row" style="background: #000;">
+		    <div class="col-md-10">
+                 <div class="navbar-collapse collapse navbar-right">
+					<ul class="nav navbar-nav">
+                      <li><a href="index.htm" id="myliks">Home</a></li>
+<li><a href="about.htm" id="myliks">About Us</a></li>
+<li><a href="contact.htm" id="myliks">Contact </a></li>
+
+                         <li ><a href="order.htm" class="Order"  id="myliks">Order History</a></li>
+						 <li ><a href="Addbooks.htm" class="Books"  id="myliks">My Books</a></li>
+						 <li ><a href="index.htm?Logout=Logout" class="SignOut" id="myliks">Sign Out</a></li>
+						 <li ><a href="sign.htm" class="SignIn" id="myliks">Sign In/Sign Up</a></li>
+					 
+
+ 
+                    </ul>
+
+
+
+                                            <ul class="nav navbar-right cart">
+                      <li class="dropdown">
+					<a href="cart.htm" class="Cart" id="myliks"><span>Cart</span></a>
+			      </li>
+			     </ul>
+
+	 
+					 
+                  </div><!-- /.navbar-collapse -->
+
+				  </div>
+			</div>
+
+	
+
+<div class="row" style="margin-right: auto;margin-left: auto;">
+<div class="col-md-12" >
+
+
+		<div class="row">
+		    <div class="col-md-12">
+			    <div class="breadcrumbs">
+				    <ul class="breadcrumb">
+                        <li><a href="index.htm">Home</a> <span class="divider"></span></li>
+                        <li class="active">Shopping History</li>
+                    </ul>
+				</div>
+			</div>
+		</div>
+		
+		<div class="row">
+		    <div class="col-md-12">
+				<h2>Shopping History</h2>
+			</div>
+		</div>
+		
+		<div class="row" id="bookresult">
+		</div>
+	
+   </div>		
+		
+    
+
+<div class="footer black">
+		<div class="container">
+
+				<div class="col-md-8 social">
+					<div class="copy"><BR></div>
+				</div>
+
+		    
+	</div>
+	</div>	
+
+	
+</div></div>
+
+
+
+
+
+<style>
+
+#alertWindow {
+  display: inline-block;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+   height: 100%;
+margin: auto;
+display: none;
+text-align: center;
+opacity: 0.2;
+background-color: #000;
+z-index:500;
+}
+
+#alertWindow1 {
+
+    display: inline-block;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 300px;
+    height: 100px;
+    margin: auto;
+    background-color: #f3f3f3;
+	border: 1px solid #333;
+	display: none;
+	text-align: center;
+   border-radius: 5px;
+   padding: 10px;
+   z-index:501;
+}
+#btnOk, #btnCancel { width: 70px; }
+</style>
+
+
+<!-- script type="text/javascript" src="data/jquery.min.js"></script>
+<script>window.jQuery || document.write("<script src='js/jquery-1.10.2.min.js'><\/script>")</script -->
+<script type="text/javascript" src="data/bootstrap.js"></script>
+<script type="text/javascript" src="data/bootstrap-select.js"></script>
+<script type="text/javascript" src="data/jquery.js"></script>
+<script type="text/javascript" src="data/cloud-zoom.js"></script>
+<script type="text/javascript" src="data/sapphire.js"></script>
+
+<script>
+$(document).ready( function(){	
+	
+		$('.slideshow > div').flexslider({
+			animation:"slide",
+			easing:"",
+			direction:"horizontal",
+			startAt:0,
+			initDelay:0,
+			slideshowSpeed:7000,
+			animationSpeed:600,
+			prevText:"Previous",
+			nextText:"Next",
+			pauseText:"Pause",
+			playText:"Play",
+			pausePlay:false,
+			controlNav:true,
+			slideshow:true,
+			animationLoop:true,
+			randomize:false,
+			smoothHeight:false,
+			useCSS:true,
+			pauseOnHover:true,
+			pauseOnAction:true,
+			touch:true,
+			video:false,
+			mousewheel:false,
+			keyboard:false
+	});
+});	
+</script>
+
+<script>
+$.fn.CloudZoom.defaults = {
+	zoomWidth:"auto",
+	zoomHeight:"auto",
+	position:"inside",
+	adjustX:0,
+	adjustY:0,
+	adjustY:"",
+	tintOpacity:0.5,
+	lensOpacity:0.5,
+	titleOpacity:0.5,
+	smoothMove:3,
+	showTitle:false};
+		
+jQuery(document).ready(function() 
+{
+    $('#myTab a').click(function (e) {
+		e.preventDefault();
+		$(this).tab('show');
+    })
+});
+</script>
+
+
+
+
+</body></html>
